@@ -1,0 +1,1202 @@
+const myMessage  = 'Hello world' // Try edit me
+console.log(myMessage)
+=============================================================
+
+const myName="aadhi"
+const myRoll=12
+console.log("My name is : ",myName ,"My rollnumber is : ",myRoll)
+console.log(`My name is : ${myName} and My rollnumber is : ${myRoll}`)
+======================================================================
+let              reassign     redeclare   function scope                   
+var              reassign     no          block scope    //!!
+const            no           no          block scope
+======================================================================
+
+Keyword	 Can Reassign 	Can Redeclare	         Scope
+let	  Yes	         No	                Block scope
+var	  Yes	         Yes	                Function scope
+const	  No	         No	                Block scope
+==================
+let:
+Can reassign: You can assign a new
+value to a let variable.
+let x = 10;
+x = 20;   //valid
+Cannot redeclare: You cannot declare the same variable name in the same scope using let.
+let y = 5;
+let y = 10; // SyntaxError: Identifier 'y' has already been declared
+Scope: It has block scope, meaning it is only accessible within the block {} in which it is declared.
+{
+  let a = 1;
+  console.log(a); // 1
+}
+console.log(a); // ReferenceError: a is not defined
+===================
+
+var:
+Can reassign: You can assign a new value to a var variable.
+var z = 100;
+z = 200; // Valid
+Can redeclare: You can redeclare the same variable name in the same scope using var.
+var w = 50;
+var w = 60; // No error
+console.log(w); // 60
+Scope: It has function scope, meaning it is accessible throughout the entire function where it is declared, even before the declaration due to hoisting.
+function testVar() {
+  if (true) {
+    var b = 'inside';
+  }
+  console.log(b); // 'inside'
+}
+testVar();
+console.log(b); // ReferenceError: b is not defined
+==================
+
+const:
+Cannot reassign: Once a value is assigned to a const variable, it cannot be changed.
+const pi = 3.14;
+pi = 3.1415; // TypeError: Assignment to constant variable.
+Cannot redeclare: You cannot declare the same variable name in the same scope using const.
+const name = 'Alice';
+const name = 'Bob'; // SyntaxError: Identifier 'name' has already been declared
+Scope: It has block scope, like let.
+{
+  const c = 'constant';
+  console.log(c); // 'constant'
+}
+console.log(c); // ReferenceError: c is not defined
+
+=======================================================================
+const myName ='sai'
+myName='ram'
+console.log(`my name is: ${myName})
+
+// we can't reassign the value
+//we can reassign the value in var and let
+=====================================================================
+var  myName ='sai'
+var myName='ram'
+console.log(`my name is: ${myName}`)
+
+//only var can be redeclared
+=====================================================================
+var myName='sai'
+function disp()
+{
+ myName='ram'
+ console.log('im inside the fun: ',myName)
+if(true)
+myName='nandhini'
+console.log('im inside the block: ',myName)
+}
+disp()
+console.log('im inside the fun: ',myName)
+
+
+//output:
+im inside the fun:  ram
+im inside the block:  nandhini
+im inside the fun:  sai
+=====================================================================
+const myName='outside'
+function disp()
+{
+ //const myName='inside'
+ console.log('im inside the fun: ',myName)
+if(true)
+ const myName='block'
+console.log('im inside the block: ',myName)
+}
+disp()
+console.log('im inside the fun: ',myName)
+====================================================================
+var myName='outside'
+function disp(){
+ //var myName='inside'
+ console.log('im inside the fun: ',myName)
+if(false)
+var myName='block'
+console.log('im inside the block: ',myName)
+}
+disp()
+console.log('im side the fun: ',myName)                                                                                                                                                                                                                                                              
+
+
+output:
+im inside the fun:  undefined
+im inside the block:  undefined
+im side the fun:  outside
+==============================================================
+Hoisting :
+
+   It is a built-in behavior that moves the declarations of functions,variables, and classe
+the top of their scope before the code is executed.
+
+eg:
+
+
+//var b=10
+function disp()
+{
+b=10
+}
+disp()
+console.log(b)
+output:10
+===================================================================
+Array declaration(accept diff type of datatype)
+
+const a=[23,1,4,6]
+console.log(a)  //output:[ 23, 1, 4, 6 ]
+a[0]=45
+console.log(a) //output:[ 45, 1, 4, 6]
+/*
+{
+//array is stored in the form of object so we can make change even in const keyword
+0:23
+1:1
+2:4
+3:6
+}
+*/
+==============================================================================
+` ` - template literals - for para(multi-line data)
+' ' or " " - string
+
+a=10/0
+b=10%0
+c=2/10
+d=2%10
+e=5<Infinity
+f=103*3
+g=Infinity<Infinity
+h=Infinity
+i=NaN
+console.log(a)
+console.log(b)
+console.log(c)
+console.log(d)
+console.log(e)
+console.log(f)
+console.log(g)
+console.log(h)
+console.log(i)
+//output:
+Infinity
+NaN
+0.2
+2
+true
+309
+false
+Infinity
+NaN
+============================================
+
+let a=true
+let b=false
+let c=928377                            
+let d="sai"                                    
+let e=`sai`
+let f
+let g=null
+console.log(a)
+console.log(b)
+console.log(typeof a)
+console.log(typeof c)
+console.log(typeof d)
+console.log(typeof e)
+console.log(f, typeof f)
+console.log(typeof g)
+//output:
+true
+false
+boolean
+number
+string
+string
+undefined  undefined
+object
+
+==========================================
+n-not a regular number (consider as big-int)
+
+
+==========================================
+push-add one or more data(function)
+unshift-add one or more data at the begining
+
+let a=[12,4,"sai",23.4]
+let datas=[100,200,300]
+let person={name:"reena",roll:5}
+console.log(a)
+
+a.push(datas,800,person)
+console.log(a)
+
+a[4].push(400)
+console.log(a)
+
+//output:
+[ 12, 4, 'sai', 23.4 ]
+[
+  12,
+  4,
+  'sai',
+  23.4,
+  [ 100, 200, 300 ],
+  800,
+  { name: 'reena', roll: 5 }
+]
+[
+  12,
+  4,
+  'sai',
+  23.4,
+  [ 100, 200, 300, 400 ],
+  800,
+  { name: 'reena', roll: 5 }
+]
+
+
+
+
+let a=[12,4,"sai",23.4]
+let datas=[100,200,300]
+let person={name:"reena",roll:5}
+
+a.unshift(datas,800,person)
+console.log(a)
+a.unshift(10000)
+console.log(a)
+a.unshift(person)
+console.log(a)
+
+//output:
+[
+  [ 100, 200, 300 ],
+  800,
+  { name: 'reena', roll: 5 },
+  12,
+  4,
+  'sai',
+  23.4
+]
+[
+  10000,
+  [ 100, 200, 300 ],
+  800,
+  { name: 'reena', roll: 5 },
+  12,
+  4,
+  'sai',
+  23.4
+]
+[
+  { name: 'reena', roll: 5 },
+  10000,
+  [ 100, 200, 300 ],
+  800,
+  { name: 'reena', roll: 5 },
+  12,
+  4,
+  'sai',
+  23.4
+]
+
+=== Code Execution Successful ===
+
+===================================================================
+pop-remove the last data and return the deleted data
+shift-remove the first element
+===================================================================
+delete
+let a=[12,4,"sai",23.4]
+console.log(a)
+console.log("before delete:",a.length)
+res=delete a[1]
+console.log(a)
+console.log(" after delete:",a.length)
+
+//output:
+[ 12, 4, 'sai', 23.4 ]
+before delete: 4
+[ 12, <1 empty item>, 'sai', 23.4 ]
+ after delete: 4
+
+
+
+for(let i=0;i<a.length;i++)
+console.log(a[i])
+
+//output:
+12
+undefined
+sai
+23.4
+===========================
+let a=[12,4,5,23.4]
+var sum=0
+for(let i=0;i<a.length;i++)
+sum=sum+a[i]
+console.log(sum)
+
+
+//output:
+44.4
+==========================
+Splice(index ,how many element , add elemet)
+
+let a=[10,20,30,40,50]
+let b=[100,200,300]
+console.log('len: ',a.length)
+ 
+a.splice(1,2,b)//index, how many ele u dnt want
+console.log('len : ',a.length)
+console.log('datas : ',a)
+
+//output:
+len:  5
+len :  4
+datas :  [ 10, [ 100, 200, 300 ], 40, 50 ]
+
+=== Code Execution Successful ===
+================================
+let a=[10,20,30,40]
+ for(let i of a)
+  console.log(i)
+
+//output:
+10
+20
+30
+40
+================================
+Slice(n,m-1)index
+
+=================================
+object-real time entity(key-value pair)
+class-collection of object
+
+object declaration
+
+accessing-dot,sqare
+
+let person={
+roll:12,
+name:"sai"
+}
+person.city="CBE"
+person['state']='TN'
+person.name="ram"
+person['roll']=1
+console.log(person)
+console.log(person.name," ",person.roll," ",person.city) //dot notation
+console.log(person['name'],person['roll'])  //square bracket notation
+delete person['roll'] //sqr notation
+delete person.name //dot notation
+console.log(person)
+
+//output
+{ roll: 1, name: 'ram', city: 'CBE', state: 'TN' }
+ram   1   CBE
+ram 1
+{ city: 'CBE', state: 'TN' }
+===============================================================================================
+array of object
+
+
+let person=[{roll:12,name:"sai"},{roll:13,name:"ram"},{roll:14,name:"sree"}]
+console.log(person)
+//output:
+[
+  { roll: 12, name: 'sai' },
+  { roll: 13, name: 'ram' },
+  { roll: 14, name: 'sree' }
+]
+=========
+
+for(let a of person)
+console.log(a.roll," "+a['name'])
+//output:
+12  sai
+13  ram
+14  sree
+
+========
+
+
+let person={
+roll:12,
+name:'sai',
+city:'cbe',
+state:'tn'
+}
+ console.log(person)
+for(let key in person)
+console.log(key," : ",person[key])//only sqr 
+
+//output:
+{ roll: 12, name: 'sai', city: 'cbe', state: 'tn' }
+roll  :  12
+name  :  sai
+city  :  cbe
+state  :  tn
+
+=================================================================================================
+
+nodejs
+
+=================================================================================================
+7/01/2025
+
+destructure of object
+
+const person={
+    name:'sai',
+    roll:34,
+    gender:'male',
+    age:30
+}
+
+let {name,roll,gender}=person
+console.log(name," ",roll," ",gender)
+console.log(person)
+
+//output:
+sai   34   male
+{ name: 'sai', roll: 34, gender: 'male', age: 30 }
+
+=====
+const person={
+    name:'sai',
+    roll:34,
+    gender:'male',
+    age:30
+}
+
+let {name:n, roll:r, gender:g, age:a, city ='mdu'}=person
+console.log(n," ",r," ",g," ",a)
+console.log(person)
+
+//output:
+sai   34   male   30  mdu
+{ name: 'sai', roll: 34, gender: 'male', age: 30 }
+
+===========================================================================
+rest-operator
+
+const person={
+    name:'sai',
+    roll:34,
+    gender:'male',
+    age:30,
+    city:'cbe'
+}
+
+let {name,...res}=person
+console.log(name,res)
+console.log(person)
+
+//output:
+sai { roll: 34, gender: 'male', age: 30, city: 'cbe' }
+{ name: 'sai', roll: 34, gender: 'male', age: 30, city: 'cbe' }
+====================
+let a=[1,2,3,4,5]
+let b=['hai','hello','welcome',a]
+console.log("adding the data from a : ",b)
+b=['hai','hello','welcome',...a]
+console.log("using res-op: ",b)
+
+
+//output:
+adding the data from a :  [ 'hai', 'hello', 'welcome', [ 1, 2, 3, 4, 5 ] ]
+using res-op:  [ 'hai', 'hello', 'welcome', 1, 2, 3, 4, 5 ]
+=================================================================================================================
+NANR
+
+function add()
+{
+ console.log('welcome')
+}
+console.log('hello')
+add()
+
+WANR
+
+function add(a,b)
+{
+ c=a+b
+}
+console.log('hello')
+add(10,20)
+console.log(c)
+
+WRWR
+
+function add(a,b)
+{
+ c=a+b
+return c
+}
+console.log('hello')
+res=add(10,20)
+console.log(res)
+
+=====
+function add(b,...a)
+{
+    s=0
+    for(let i=0;i<a.length;i++)
+    s=s+a[i]
+    return s
+}
+
+console.log('hai')
+res=add(1,2,3,4,5,6,7,8,9,10)
+console.log(res)
+
+
+//output:
+b holds the first value and a holds rest of the value and add the element
+hai
+54
+
+
+NAWR
+
+function add()
+{
+return 'welcome'
+}
+
+
+
+==================
+Task 1:
+add the element in the array
+a=[1,'sai',3,4.5,2,5]
+
+ans:
+let a=[1,'sai',3,4.5,2,5]
+s=0;
+for(let i=0;i<a.length;i++)
+s=s+a[i]
+console.log(s)
+
+output:15.5
+===================
+
+Array destructure
+
+let a=[1,2,3,4,5,6]
+let [p,q,r,s,t,o]=a
+console.log(p,q,r,s,t,o)
+
+//output:
+1 2 3 4 5 6
+======================
+let a=[1,2,3,4,5,6]
+let [p,q]=a
+let [first,,, four ,,]=a
+console.log(p)
+console.log(q)
+console.log(first)
+console.log(four)
+
+//output:
+1
+2
+1
+4
+=======================
+closure:
+      A closure in JavaScript is a function that remembers the variables from its outer scope even 
+after the outer function has finished executing. This allows the inner function to access and manipulate those variables.
+
+function out()
+{
+function inner()
+{
+ console.log("I'm inside the inner function guys")
+}
+console.log("I'm inside the outer function")
+inner()
+}
+out() 
+//output:
+I'm inside the outer function
+I'm inside the inner function guys
+
+
+
+function out()
+{
+function inner()
+{
+ console.log("I'm inside the inner function guys")
+}
+console.log("I'm inside the outer function")
+return inner
+}
+inn=out()
+inn()
+
+//output:
+I'm inside the outer function
+I'm inside the inner function guys
+
+
+function outer() {
+  let count = 0
+  return function inner() { 
+      count++
+      return count; 
+  }
+}
+const counter = outer()
+console.log(counter())    //1
+console.log(counter())    //2
+============================================================
+function expression - assign a function to a variable(no hosting)
+
+inn=myFun()
+inn()
+let myFun=function out()
+{
+ console.log('i'm inside the out fun')
+return function()
+{
+console.log("out")
+}
+}
+
+//output:ReferenceError: Cannot access 'myFun' before initialization
+
+function declaration - 
+function out()
+{
+function inner()
+{
+ console.log("I'm inside the inner function guys")
+}
+console.log("I'm inside the outer function")
+return inner
+}
+inn=out()
+inn()
+==========================================================
+Arrow function-if we want to use call back function
+   An arrow function in JavaScript provides a concise syntax for writing functions.
+ It does not have its own this and is often used for short, inline functions
+const add = (a, b) => a + b; // Arrow function for addition
+console.log(add(2, 3)); // 5
+
+
+
+let a=()=>{
+    console.log('welcome') // NANR
+}
+
+a()
+==========================
+
+let a=(a,b)=>{
+    c=a+b // WANR
+}
+
+res=a(12,3)
+console.log('the ans: ',res)
+==================================
+let a=(a,b)=>{
+    c=a+b // WAWR
+    return c
+}
+
+res=a(12,3)
+console.log('the ans: ',res)
+===============================
+let a=()=>{
+      // NAWR
+    return 'hai'
+}
+
+res=a()
+console.log('the ans: ',res)
+
+===============
+let a=(x,y)=> x+y 
+ 
+res=a(1,2)
+console.log(res)
+"If the function body contains a single expression, you can omit the braces {} and the return keyword."
+========================
+function :
+asynchronous
+function get(recCheckFun)
+{
+    name='sai',
+    setTimeout(()=>{
+        if(name==='sai')
+        {
+            recCheckFun()
+        }
+         },2000)
+}
+function check()
+{
+    console.log('pass')
+}
+get(check)
+
+//output:
+pass
+
+
+synchronous-without setTimeout
+
+
+function get( recCheckFun)
+{
+    name='sai'
+        if(name==='sai')
+        {
+            recCheckFun()
+        }
+     
+     console.log('im in get')
+}
+function check()
+{
+    console.log('pass')
+}
+get(check)
+
+//output:
+pass
+im in get
+
+====================================
+Promise sate:
+1)pending sate: before receiving
+2)Resolve state: after receiving 
+3)Reject state: not getting
+
+let res= new Promise((resolve,reject)=>{
+    name= undefined
+    setTimeout(()=>{
+        if(name==='sai')
+        {
+            resolve(name)
+        }
+        else
+        {
+            reject(new Error('no data'))
+        }
+    } ,2000)
+})
+res
+.then((name)=>{
+   console.log('received: ',name) 
+})
+.catch((errr)=>{
+     console.log('pb is : ',errr) 
+})
+.finally(()=>{
+    console.log('always i will print : ') 
+})
+
+//output:
+pb is :  no data
+always i will print : 
+
+========================================================
+to avoid multiple then use async
+
+const res = () => {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const a = 'sai1'; 
+            if (a==='sai') {
+                resolve(a);
+            } else {
+                reject(new Error('no data'));
+            }
+        }, 1000);
+    });
+};
+
+const handleData = async () => {
+    try {
+        const name = await res(); // Wait for the promise to resolve
+        console.log('received', name); // Handle resolved value
+    } catch (err) {
+        console.log(err.stack); // Handle error stack
+    } finally {
+        console.log('received'); // Final message
+    }
+};
+
+handleData(); // Call the async function
+======================================================
+map function-without using forloop
+
+a=[1,2,30]
+let s=0;
+a.map((d)=>{console.log(d)})
+
+//output:
+1
+2
+30
+====================================================================================
+HTML CODE (Form validation)
+
+<!doctype html>
+<html lang="en">
+	<head>
+	<title>sample</title>
+	<meta charset="utf-8">	
+	</head>
+<body>
+<form action="processreg.html" method="get" id="frmstureg" name="frmstureg" onsubmit="return validate()" onreset="return resetForm()">
+<label for="txtstuname">Student Name:</label><br>
+<input type="text" id="txtstuname" value="" placeholder="Enter ur name"   name="namedata"  />
+<span id="spanisstunamevalid"></span><br><br>	
+
+<label for="txtstupass">Password:</label><br>
+<input type="password" id="txtstupass" value="" placeholder="Enter ur password"   name="passworddata"  />
+<span id="spanispassvalid"></span><br><br>
+
+
+<label for="txtconfirmstupass">Confrim Password:</label><br>
+<input type="password" id="txtconfirmstupass" value="" placeholder="re-enter  password"   name="cpassworddata"  />
+<span id="spaniscpassvalid"></span><br><br>
+
+
+<label  >Gender:</label><br>
+<input type="radio" id="rmale" value="male"   name="valradio"  />
+<label>Male</label> 
+<input type="radio" id="rfemale" value="female"   name="valradio"  />
+<label>Female</label> 
+<span id="spangender"></span><br><br>
+
+
+<label >Qualification:</label><br>
+<select type="select" id="stuqualification"    name="qualification" >
+	<option value="-1">--select--</option>
+	<option value="b.tech">B.Tech</option>
+	<option value="be(cse)">BE(CSE)</option>
+	<option value="mech">Mech</option>
+</select>
+<span id="spanqualification"></span><br><br>
+<br>
+ 
+
+
+
+
+<input type="submit" value="SUBMIT"/>
+<input type="reset" value="RESET"/>				
+</form>	
+<script type="text/javascript">
+function validate()
+{
+	 isnamevalid=true; 
+	 ispassvalid=true;	
+	iscpassvalid=true;
+	isgendervalid=true;
+	isqualification=true;
+	if(document.getElementById("txtstuname").value=="")
+	{
+		isnamevalid=false;
+	 document.getElementById("spanisstunamevalid").innerHTML="plz enter the name";
+	document.getElementById("spanisstunamevalid").style.color="red"; 
+	}
+	else
+	{
+	isnamevalid=true;
+	 document.getElementById("spanisstunamevalid").innerHTML="valid";
+	document.getElementById("spanisstunamevalid").style.color="green"; 
+	}
+
+	if(document.getElementById("txtstupass").value=="")
+	{
+		ispassvalid=false;
+	 document.getElementById("spanispassvalid").innerHTML="plz enter ur password";
+	document.getElementById("spanispassvalid").style.color="red"; 
+	}
+	else
+	{
+	ispassvalid=true;
+	 document.getElementById("spanispassvalid").innerHTML="valid";
+	document.getElementById("spanispassvalid").style.color="green"; 
+	}
+
+
+	if(document.getElementById("txtconfirmstupass").value=="")
+	{
+		iscpassvalid=false;
+	 document.getElementById("spaniscpassvalid").innerHTML="plz re-enter ur password";
+	document.getElementById("spaniscpassvalid").style.color="red"; 
+	}
+else if(document.getElementById("txtconfirmstupass").value!=document.getElementById("txtstupass").value)
+	{
+		iscpassvalid=false;
+	 document.getElementById("spaniscpassvalid").innerHTML="password and confirm password not same";
+	document.getElementById("spaniscpassvalid").style.color="red"; 
+	}
+	else
+	{
+	iscpassvalid=true;
+	 document.getElementById("spaniscpassvalid").innerHTML="valid";
+	document.getElementById("spaniscpassvalid").style.color="green"; 
+	}
+
+
+if(document.getElementById("rmale").checked!=true && document.getElementById("rfemale").checked!=true)
+	{
+		isgendervalid=false;
+	 document.getElementById("spangender").innerHTML="plz choose the gender";
+	document.getElementById("spangender").style.color="red"; 
+	}
+	else
+	{
+	isgendervalid=true;
+	 document.getElementById("spangender").innerHTML="valid";
+	document.getElementById("spangender").style.color="green"; 
+	}
+
+if(document.getElementById("stuqualification").value=="-1")
+	{
+		isqualification=false;
+	 document.getElementById("spanqualification").innerHTML="plz choose the qualification";
+	document.getElementById("spanqualification").style.color="red"; 
+	}
+	else
+	{
+	isqualification=true;
+	 document.getElementById("spanqualification").innerHTML="valid";
+	document.getElementById("spanqualification").style.color="green"; 
+	}
+
+
+	
+	if( isnamevalid==false || ispassvalid==false || iscpassvalid==false||isgendervalid==false||isqualification==false)
+	{
+		return false;
+	}
+	else{
+		return true;
+	}
+
+ 
+ 
+
+}
+
+function resetForm()
+{
+ document.getElementById("spanisstunamevalid").innerHTML="";
+document.getElementById("spanispassvalid").innerHTML="";
+document.getElementById("spaniscpassvalid").innerHTML="";	 
+document.getElementById("rmale").checked=false;	 
+document.getElementById("rfemale").checked=false;
+document.getElementById("spangender").innerHTML="";
+document.getElementById("spanqualification").innerHTML="";
+}
+
+</script>
+</body>
+
+</html>
+
+======================================
+react project
+
+Microsoft Windows [Version 10.0.26100.2605]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\admin>cd
+
+C:\Users\admin>cd C:\react project
+
+C:\react project>npx create-react-app nan
+
+Creating a new React app in C:\react project\nan.
+
+Installing packages. This might take a couple of minutes.
+Installing react, react-dom, and react-scripts with cra-template...
+
+
+added 1323 packages in 3m
+
+267 packages are looking for funding
+  run `npm fund` for details
+
+Initialized a git repository.
+
+Installing template dependencies using npm...
+npm error code ERESOLVE
+npm error ERESOLVE unable to resolve dependency tree
+npm error
+npm error While resolving: nan@0.1.0
+npm error Found: react@19.0.0
+npm error node_modules/react
+npm error   react@"^19.0.0" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error peer react@"^18.0.0" from @testing-library/react@13.4.0
+npm error node_modules/@testing-library/react
+npm error   @testing-library/react@"^13.0.0" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\admin\AppData\Local\npm-cache\_logs\2025-01-08T04_15_20_796Z-eresolve-report.txt
+npm error A complete log of this run can be found in: C:\Users\admin\AppData\Local\npm-cache\_logs\2025-01-08T04_15_20_796Z-debug-0.log
+`npm install --no-audit --save @testing-library/jest-dom@^5.14.1 @testing-library/react@^13.0.0 @testing-library/user-event@^13.2.1 web-vitals@^2.1.0` failed
+
+C:\react project>cd nan
+
+C:\react project\nan>npm start
+
+> nan@0.1.0 start
+> react-scripts start
+√ Something is already running on port 3000.
+
+Would you like to run the app on another port instead? ... yes
+(node:14144) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:14144) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+One of your dependencies, babel-preset-react-app, is importing the
+"@babel/plugin-proposal-private-property-in-object" package without
+declaring it in its dependencies. This is currently working because
+"@babel/plugin-proposal-private-property-in-object" is already in your
+node_modules folder for unrelated reasons, but it may break at any time.
+
+babel-preset-react-app is part of the create-react-app project, which
+is not maintianed anymore. It is thus unlikely that this bug will
+ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
+your devDependencies to work around this error. This will make this message
+go away.
+Failed to compile.
+
+Module not found: Error: Can't resolve 'web-vitals' in 'C:\react project\nan\src'
+ERROR in ./src/reportWebVitals.js 5:4-24
+Module not found: Error: Can't resolve 'web-vitals' in 'C:\react project\nan\src'
+
+webpack compiled with 1 error
+Terminate batch job (Y/N)? y
+
+C:\react project\nan>npm install web-vitals
+
+added 1 package, changed 1 package, and audited 1325 packages in 7s
+
+267 packages are looking for funding
+  run `npm fund` for details
+
+8 vulnerabilities (2 moderate, 6 high)
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+
+
+
+
+
+ctrl+c
+y
+
+===================
+
+component creation
+
+class component
+function component
+
+
+hook
+1)use state - data value change in UI ,without this 
+2)useEffect - ....rendering...[]- dependency
+3)useReducer - complex logic can ba archieved, 
+4)useContext-can access globally(
+props drilling can be overcome with the help of useContent
+================================
+
+export default function Demo() {
+    const [count1, setCount1] = useState(0);
+    const [count2, setCount2] = useState(0);
+
+    useEffect(() => {
+        if (count1 === 10) {
+            setTimeout(() => {
+                setCount1(0); 
+            }, 1000); 
+        }
+    }, [count1]); 
+
+    return (
+        <>
+            <h1>The state value of count1 is {count1}</h1>
+            <h1>The state value of count2 is {count2}</h1>
+            <button onClick={() => setCount1(count1 + 1)}>Count1</button>
+            <button onClick={() => setCount2(count2 + 1)}>Count2</button>
+        </>
+    );
+}
+====================
+redex
+====================
+
+const express = require('express')
+const bodyParser = require('body-parser');
+const exhbs = require('express-handlebars')
+const app = express()
+const dbo = require('./db');
+//const objid = dbo.objectId;
+const empmodel=require('./models/empModel')
+dbo.getDB()
+
+
+app.engine('hbs',
+    exhbs.engine({
+        layoutsDir : 'viewsfold/',
+        defaultLayout : 'maincopy',
+        extname: 'hbs',
+        runtimeOptions:{
+            allowProtoPropertiesByDefault:true,
+            allowProtoMethodsByDefault:true
+        }
+    })
+);
+
+app.set('view engine' , 'hbs');
+app.set('views','viewsfold');
+app.use(bodyParser.urlencoded({extended :true}));
+
+app.get('/', async(request ,respond) => 
+{
+    let edit_id,edit_emp,delete_id;
+    let datas = await empmodel.find({})
+    let msg = '';
+    if(request.query.edit_idd)
+    {
+        edit_id =request.query.edit_idd
+        
+        edit_emp = await empmodel.findOne({_id: edit_id});
+    }
+
+======================================================================
+create folder
+cmd - code .
+file env
+
